@@ -1,9 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0; url=/thesis.pdf" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transformer-Based Classification of Astronomical Light Curves</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #fbfbfa;
+        --fg: #1b1b18;
+        --muted: #6b6b63;
+        --card: #ffffff;
+        --border: #e3e3dd;
+        --accent: #3b5bdb;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #16161a;
+          --fg: #ececea;
+          --muted: #9a9a93;
+          --card: #1f1f24;
+          --border: #32323a;
+          --accent: #8da2fb;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 3rem 1.25rem 4rem;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+      }
+      main { width: 100%; max-width: 40rem; }
+      h1 { font-size: 1.5rem; line-height: 1.3; margin: 0 0 .4rem; }
+      .byline { color: var(--muted); margin: 0 0 2.5rem; font-size: .95rem; }
+      a.doc {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.1rem 1.25rem;
+        margin-bottom: .85rem;
+        transition: border-color .15s ease, transform .15s ease;
+      }
+      a.doc:hover, a.doc:focus-visible {
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
+      a.doc .label {
+        display: block;
+        font-size: .72rem;
+        letter-spacing: .09em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: .35rem;
+      }
+      a.doc .name { font-weight: 600; color: var(--accent); }
+      a.doc .meta { display: block; color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+      footer { margin-top: 2.5rem; font-size: .85rem; color: var(--muted); }
+      footer a { color: var(--accent); }
+    </style>
+    <script>
+      // Route /#thesis and /#article straight to the PDFs so either document can be
+      // linked directly from the site root. Anything else shows the index below.
+      (function () {
+        var routes = {
+          "#thesis": "/thesis.pdf",
+          "#article": "/articles/aanda.pdf",
+          "#aanda": "/articles/aanda.pdf"
+        };
+        var target = routes[window.location.hash];
+        if (target) window.location.replace(target);
+      })();
+    </script>
   </head>
   <body>
-    <p>If you are not redirected, <a href="/thesis.pdf">click here</a>.</p>
+    <main>
+      <h1>Transformer-Based Classification of Astronomical Light Curves</h1>
+      <p class="byline">Alexander Mateides &middot; Faculty of Information Technology, CTU in Prague</p>
+
+      <a class="doc" href="/thesis.pdf">
+        <span class="label">Bachelor's thesis</span>
+        <span class="name">Transformer-Based Classification of Astronomical Light Curves</span>
+        <span class="meta">Full text, PDF</span>
+      </a>
+
+      <a class="doc" href="/articles/aanda.pdf">
+        <span class="label">Article draft</span>
+        <span class="name">Transformer-based classification of variable stars in TESS light curves</span>
+        <span class="meta">Prepared for Astronomy &amp; Astrophysics, PDF</span>
+      </a>
+
+      <footer>
+        Source and experiment code on
+        <a href="https://github.com/alexmateides/bachelors-thesis">GitHub</a>.
+      </footer>
+    </main>
   </body>
 </html>
