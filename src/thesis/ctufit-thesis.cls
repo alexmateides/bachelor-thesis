@@ -252,7 +252,7 @@
 \thectufitprogramlabelcapital: \thectufitprogram\\
 \thectufitspecialisationlabelcapital: \thectufitspecialisation\\
 \thectufitsupervisorlabelcapital: \thectufitsupervisor\\
-\today}\end{titlepage}
+May 15, 2026}\end{titlepage}
 \restoregeometry
 }
 %title page end

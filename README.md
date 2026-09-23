@@ -18,7 +18,10 @@
 
 `/text/thesis.pdf` - The compiled thesis PDF <br>
 `/thesis` - LATEX source files <br>
-`/compile.sh` - LATEX compilation script <br>
+`/articles/aanda` - Article draft for Astronomy & Astrophysics (LATEX sources + A&A class files) <br>
+`/articles/aanda.pdf` - The compiled article PDF <br>
+`/compile.sh` - LATEX compilation script, builds both the thesis and the article <br>
+`/index.html` - Landing page for the published site, links to both PDFs <br>
 `/LICENSE` - MIT License statement <br>
 `/README.md` - This file <br>
 `/THIRD_PARTY_LICENSES.md` - Licensing of used libraries

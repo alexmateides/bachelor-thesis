@@ -16,9 +16,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: Create output dir
-        run: mkdir -p output
+        run: mkdir -p output/articles
 
-      # 2. Compile LaTeX PDF
+      # 2. Compile the thesis
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
@@ -30,9 +30,22 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: thesis/ctufit-thesis.pdf
+          path: src/thesis/ctufit-thesis.pdf
 
-      # 3. Copy HTML redirect and thesis.pdf into the output dir
+      # 3. Compile the A&A article (pdflatex, as the aa class expects)
+      - name: Compile A&A article
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: aanda.tex
+          working_directory: articles/aanda
+          args: -pdf -interaction=nonstopmode -halt-on-error
+      - name: Upload article PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ArticlePDF
+          path: articles/aanda/aanda.pdf
+
+      # 4. Copy the site index and both PDFs into the output dir
       - name: Copy index.html
         run: |
           if [ -f index.html ]; then
@@ -49,11 +62,19 @@ jobs:
             echo "Warning: src/thesis/ctufit-thesis.pdf not found"
           fi
 
-      # 4. Add your custom domain (CNAME)
+      - name: Copy articles/aanda.pdf
+        run: |
+          if [ -f articles/aanda/aanda.pdf ]; then
+            cp articles/aanda/aanda.pdf output/articles/aanda.pdf
+          else
+            echo "Warning: articles/aanda/aanda.pdf not found"
+          fi
+
+      # 5. Add your custom domain (CNAME)
       - name: Create CNAME
         run: echo "bachelor-thesis.mateides.com" > output/CNAME
 
-      # 5. Deploy everything in output/ (thesis.pdf, index.html, CNAME) to gh-pages
+      # 6. Deploy everything in output/ (index.html, thesis.pdf, articles/, CNAME) to gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

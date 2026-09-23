@@ -206,6 +206,11 @@ def run_experiment(config: ExperimentConfig) -> Dict[str, Any]:
         extra_out_dim=config.EXTRA_MLP_OUT,
     ).to(device)
 
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Total parameters: {total_params:,}")
+    print(f"Trainable parameters: {trainable_params:,}")
+
     collator = LightCurveCollator(config)
     training_args = build_training_args(config, output_dir, device=device)
     metrics_callback = MetricsCallback()

@@ -39,7 +39,7 @@
 % paragraph - if passed, this optional argument sets paragraphs as the deepest level of headers, styles it, numbers it and adds it to Table of Content. Use with care! Normally, it is considered unwise to use it, since it is too deep.
 % colour: bw for black&white OR no option for default colour scheme
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[english,bachelor,oneside]{ctufit-thesis}
+\documentclass[english,bachelor,twoside]{ctufit-thesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILL IN THIS INFORMATION
@@ -54,7 +54,7 @@
 \ctufitspecialisation{Artificial Intelligence} % replace with your specialisation
 \ctufityear{2026} % replace with the year of your defence
 \ctufitdeclarationplace{Čakov} % replace with the place where you sign the declaration
-\ctufitdeclarationdate{\today} % replace with the date of signature of the declaration
+\ctufitdeclarationdate{May 15, 2026} % replace with the date of signature of the declaration
 \ctufitabstractCZE{Tato bakalářská práce se zabývá využitím neuronových sítí založených na transformerové architektuře pro klasifikaci proměnných hvězd na základě vysoce přesných světelných křivek ze satelitu TESS.
 Klasifikace proměnných hvězd představuje důležitý úkol moderní astronomie, protože rostoucí objem fotometrických dat z rozsáhlých přehlídek oblohy činí manuální analýzu nepraktickou.
 
@@ -98,11 +98,11 @@ In addition to predictive accuracy, the thesis also evaluates the computational 
 
 % hyperlinks
 \hypersetup{
-%pdfpagelayout=TwoPageRight,
-    pdfpagelayout=OneColumn,
-    colorlinks=true,
+    pdfpagelayout=TwoPageRight,
+    %pdfpagelayout=OneColumn,
+    colorlinks=false,
     allcolors=decoration,
-%pdfborder={0 0 0.1}
+    pdfborder={0 0 0.1}
 }
 
 % uncomment the following to hide all hyperlinks
